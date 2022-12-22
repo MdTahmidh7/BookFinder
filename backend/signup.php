@@ -22,6 +22,8 @@ echo $roll . $email . $pass1 . $pass2 . " ". $md5Pass;
 if(!empty($roll) && !empty($email) && !empty($pass1) && !empty($pass2) ){
     if($pass1 === $pass2){
         echo " Passs Match";
+        $cookieName = "email";
+        setcookie($cookieName,$email, time()+(8600*30),"/");
         $sql = "INSERT INTO users (roll, email, newPassword) VALUES ('$roll','$email','$md5Pass')";
         if($conn -> query($sql)){
           //  echo "User inserted in Database ";
@@ -34,7 +36,10 @@ exit();
             echo "Can not insert user in Database ";
         }
     }else{
-        echo "Not match";
+    echo '<script language="javascript">';
+    echo 'alert("Password not matched.");';
+    echo 'window.location = "http://localhost/bookFinder/home.php"';
+    echo '</script>';
     }
 }
 

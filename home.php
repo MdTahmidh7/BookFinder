@@ -377,7 +377,8 @@ if(empty($_SESSION['login'])){
             <a href="#">Home</a>
             <a href="" target="_blank">Profile</a>
             <a href="#m2-o" id="m2-c">Creat Post</a>
-            <a href="./logout.php" target="_blank">Log Out</a>
+            <a href="./logout.php">Log Out</a>
+            <a href=""> Profile Name </a>
         </div>
     </div>
 
@@ -402,14 +403,18 @@ if(empty($_SESSION['login'])){
                         <p>Details</p>
                     </div>
                     <div class="right">
-                        <form action="">
-                            <input type="text"><br>
-                            <input type="text"><br>
-                            <input type="text">
-                            <textarea style="margin-top:10px; padding:5px; border-radius: 5px" ; name="" id="" cols="31"
-                                rows="3">
+                        <form action="./backend/createpost.php" method = "post">
+                            <input type="text" name = "bookName" required><br>
+                            <input type="text" name = "authorName" required><br>
+                            <input type="text" name= "edition" required>
+                            <textarea name="details" id="" cols="32" rows="5" 
+                            style="margin-top:10px; padding:5px; border-radius: 5px;
+                            font-size:16px;"
+                            ></textarea>
                             </textarea>
-                            <input type="submit" style="width: 80px;font-size: 16px;">
+                            <button name="submit" style="width: 80px;font-size: 16px; margin-top:10px;
+                            padding:7px; border-radius:7px;cursor:pointer;"  > Submit</button>
+                            <!-- <input name="submit" style="width: 80px;font-size: 16px;"> -->
                         </form>
                     </div>
                 </div>
