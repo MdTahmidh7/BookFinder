@@ -227,7 +227,9 @@ if(empty($_SESSION['login'])){
     }
 
     .modal {
-        width: 60rem;
+
+        /* width: 60rem; */
+        width: 700px;
         padding: 4rem 2rem;
         border-radius: .8rem;
         color: var(--light);
@@ -327,6 +329,7 @@ if(empty($_SESSION['login'])){
     .modal-body {
         display: flex;
         justify-content: center;
+        
     }
 
     .modal-body .left {
@@ -385,9 +388,18 @@ if(empty($_SESSION['login'])){
 
 
 
+
+
+
+
+
+
+
+
+
+
+<!-- ______________________________________________________ -->
     <!-- ?Modal  -->
-
-
     <div class="box">
         <!-- <a href="#m2-o" class="link-1" id="m2-c">Modal 2</a> -->
         <div class="modal-container" id="m2-o">
@@ -401,20 +413,22 @@ if(empty($_SESSION['login'])){
                         <p>Author name</p>
                         <p>Edition</p>
                         <p>Details</p>
+                        <p style= "margin-top: 95px;">Image</p>
                     </div>
                     <div class="right">
-                        <form action="./backend/createpost.php" method = "post">
+                    <?php if (isset($_GET['error'])): ?>
+		            <p><?php echo $_GET['error']; ?></p>
+	                <?php endif ?>
+                        <form action="./backend/createpost.php" method = "post"  enctype="multipart/form-data">
                             <input type="text" name = "bookName" required><br>
                             <input type="text" name = "authorName" required><br>
                             <input type="text" name= "edition" required>
                             <textarea name="details" id="" cols="32" rows="5" 
                             style="margin-top:10px; padding:5px; border-radius: 5px;
-                            font-size:16px;"
+                            font-size:16px;" required
                             ></textarea>
-                            </textarea>
-                            <button name="submit" style="width: 80px;font-size: 16px; margin-top:10px;
-                            padding:7px; border-radius:7px;cursor:pointer;"  > Submit</button>
-                            <!-- <input name="submit" style="width: 80px;font-size: 16px;"> -->
+                            <input type="file" name= "img" required>
+                            <button type="submit" name="submit" value="upload" style="width: 70px;font-size: 16px; margin-top:10px;padding:7px; border-radius:7px;cursor:pointer;"> Submit</button>
                         </form>
                     </div>
                 </div>
