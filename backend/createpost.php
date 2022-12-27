@@ -37,7 +37,7 @@ $user_id =  $row['id'];
 	$error = $_FILES['img']['error'];
 
     if ($error === 0) {
-		if ($img_size > 142000) {
+		if ($img_size > 600000) {
 			$em = "Sorry, your file is too large.";
 		    header("Location: index.php?error=$em");
 		}else {

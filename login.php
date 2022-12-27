@@ -114,10 +114,10 @@
     <div class="container">
         <div class="main">
             <input type="checkbox" id="chk" aria-hidden="true">
-
             <div class="signup">
                 <form action="./backend/signup.php" method="post">
-                    <label for="chk" aria-hidden="true">Sign up</label>
+                    <!-- <h2 style="text-align:center; color:white;">Book Finder</h2> -->
+                    <label style="text-align:center; color:white;" for="chk" aria-hidden="true">Book Finder Sign up</label>
                     <input type="text" name="roll" placeholder="Student ID" required="">
                     <input type="email" name="email" placeholder="Email" required="">
                     <input type="password" name="pass1" placeholder="Password" required="">

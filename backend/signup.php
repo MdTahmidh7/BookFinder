@@ -33,7 +33,11 @@ if(!empty($roll) && !empty($email) && !empty($pass1) && !empty($pass2) ){
 exit();
         }
         else{
-            echo "Can not insert user in Database ";
+            echo '<script language="javascript">';
+             echo 'alert("Email not valid");';
+             echo 'window.location = "http://localhost/bookFinder/home.php"';
+             echo '</script>';
+           // echo "Can not insert user in Database ";
         }
     }else{
     echo '<script language="javascript">';
