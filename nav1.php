@@ -137,15 +137,15 @@
 
         body {
             /* --light: hsl(220, 50%, 90%); */
-            --primary: hsl(255, 30%, 55%);
-            --focus: hsl(210, 90%, 50%);
+            /* --primary: hsl(255, 30%, 55%); */
+            /* --focus: hsl(210, 90%, 50%); */
             /* --global-background: hsl(220, 3%, 39%); */
-            --background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
+            /* --background: linear-gradient(to right, hsl(210, 30%, 20%), hsl(255, 30%, 25%));
             --shadow-1: hsla(236, 50%, 50%, .3);
-            --shadow-2: hsla(236, 50%, 50%, .4);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
-            color: var(--light);
-            background: var(--global-background);
+            --shadow-2: hsla(236, 50%, 50%, .4); */
+            /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif; */
+            /* color: var(--light); */
+            /* background: var(--global-background); */
         }
 
         a,
@@ -178,7 +178,7 @@
         }
 
         .box__title {
-            font-size: 10rem;
+            /* font-size: 10rem; */
             font-weight: normal;
             letter-spacing: .8rem;
             margin-bottom: 2.6rem;
@@ -191,7 +191,7 @@
         .box__p,
         .box__info,
         .box__note {
-            font-size: 1.6rem;
+            /* font-size: 1.6rem; */
         }
 
         .box__info {
@@ -236,7 +236,7 @@
         }
 
         .modal__title {
-            font-size: 3.2rem;
+            /* font-size: 3.2rem; */
         }
 
         .modal__text {
@@ -292,7 +292,7 @@
             border: 1px solid var(--border-color);
             border-radius: 100rem;
             color: inherit;
-            font-size: 2.2rem;
+            /* font-size: 2.2rem; */
             position: absolute;
             top: 2rem;
             right: 2rem;
@@ -319,7 +319,7 @@
             bottom: 20px;
             left: 20px;
             color: hsla(0, 0%, 1000%, .6);
-            font-size: 1.6rem;
+            /* font-size: 1.6rem; */
         }
 
         .modal-body {
@@ -334,7 +334,7 @@
 
         .modal-body .left p {
             margin-top: 15px;
-            font-size: 20px;
+            /* font-size: 20px; */
             width: 200px;
         }
 
@@ -344,7 +344,7 @@
 
         .modal-body .right input {
             margin-top: 10px;
-            font-size: 20px;
+            /* font-size: 20px; */
             border-radius: 9px;
             height: 35px;
             padding-left: 4px;
@@ -397,6 +397,8 @@
                 
                 ?>
             </a>
+            <a href="./receivedRequest.php">Received Request</a>
+            <a href="./sentRequest.php">Sent Request</a>
         </div>
     </div>
 </body>
