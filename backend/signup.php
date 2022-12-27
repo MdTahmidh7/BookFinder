@@ -22,6 +22,14 @@ echo $roll . $email . $pass1 . $pass2 . " ". $md5Pass;
 if(!empty($roll) && !empty($email) && !empty($pass1) && !empty($pass2) ){
     if($pass1 === $pass2){
         echo " Passs Match";
+        $sql_if_mail_exist = "SELECT * FROM `users` 
+        where email = '. $email .';";
+        if($conn-> query($sql_if_mail_exist)){
+            echo '<script language="javascript">';
+             echo 'alert("Email already Resigterd.");';
+             echo 'window.location = "http://localhost/bookFinder/login.php"';
+             echo '</script>';
+        }
         $cookieName = "email";
         setcookie($cookieName,$email, time()+(8600*30),"/");
         $sql = "INSERT INTO users (roll, email, newPassword) VALUES ('$roll','$email','$md5Pass')";
