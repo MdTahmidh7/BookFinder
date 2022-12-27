@@ -61,6 +61,15 @@ include './nav1.php';
                                     echo $row['img_location'];
                                     ?>
                                 </p>
+                                <div>
+                                   <!-- <?php  echo $row['post_id'];?> -->
+                                    <form action="./backend/button.php" method="post">
+                                        <?php 
+                                        $x = $row['post_id'];
+                                        echo "<button style='width:80px;height:30px;font-size:16px;' type='submit' name='btn1' value='$x'>Request</button>"
+                                        ?>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
