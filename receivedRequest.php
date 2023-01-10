@@ -40,8 +40,10 @@ $user_id =  $row['id'];
             if (!$conn) {
                 echo "Can not connect to Database.";
             }
-            $query = "SELECT * FROM `request` WHERE request_to = '".$user_id."'";
-            $run_query = mysqli_query($conn, $query); //Run the query function
+            $request_status = "Pending";
+            $query = "SELECT * FROM `request` WHERE request_to = '".$user_id."' ";
+            $query_pendingRequest = "SELECT * FROM `request` WHERE request_to = '".$user_id."' and request_status='Pending'";
+            $run_query = mysqli_query($conn, $query_pendingRequest); //Run the query function
             $check_data = mysqli_num_rows($run_query) > 0;
 
             if ($check_data) {
@@ -50,7 +52,7 @@ $user_id =  $row['id'];
         ?>
         <div class="col-md-3 px-2" >
             <div class="card mt-5">
-                <div class="card-body">
+                <div class="card-body" style="background: gainsboro;box-shadow: 5px 5px 8px darkgrey;">
                     <h2></h2>
                     <h4>Request from : <?php echo $row['request_from'] ?> </h4>
                             <?php
@@ -64,14 +66,23 @@ $user_id =  $row['id'];
                             ?>
                             <h3>Request for :  <?php echo $row1['book_name']  ?></h3>
                             <p class="card-text"> Normal Text MSG.</p>
-                                <div>
-                                    <form action="./backend/button.php" method="post">
+                                <div style="display:flex">
+                                   <div class="confirm">
+                                   <form action="./backend/confirmRequest.php" method="post">
                                         <?php 
-                                        $x = $row['post_id'];
-                                        echo "<button style='width:80px;height:30px;font-size:16px;' type='submit' name='btn1'>Confirm</button>";
-                                        echo "<button style='width:80px;height:30px;font-size:16px;margin-left:5px;' type='submit' name='btn1'>Decline</button>"
+                                        $x = $row['request_id'];
+                                        echo "<button style='width:80px;height:30px;font-size:16px;' type='submit' name='btn1' value = '$x'>Confirm</button>";
                                         ?>
                                     </form>
+                                   </div>
+                                    <div class="decline">
+                                    <form action="./backend/declineRequest.php" method="post">
+                                        <?php 
+                                        $x = $row['request_id'];
+                                        echo "<button style='width:80px;height:30px;font-size:16px;margin-left:5px;' type='submit' name='btn1' value = '$x'>Decline</button>"
+                                        ?>
+                                    </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>

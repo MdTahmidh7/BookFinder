@@ -49,9 +49,13 @@ $roll = $row['roll'];
         ?>
         <div class="col-md-3 px-2" >
             <div class="card mt-5">
-                <div class="card-body">
+                <div class="card-body" style="background: gainsboro;box-shadow: 5px 5px 8px darkgrey;">
+
+                
                             <?php
                             $temp = $row['post_id'];
+                            $status = $row['request_status'];
+
                             $conn = new mysqli('localhost', 'root', '', 'bookFinder');
 
                             $sql1 = "SELECT book_name FROM `post` WHERE post_id = '".$temp."'";
@@ -59,32 +63,46 @@ $roll = $row['roll'];
                             $row1 = mysqli_fetch_assoc($result1);
                             $book_name = $row1['book_name'];
 
+                           
+                            $sql2 = "SELECT * from request";
+                            $result2 = mysqli_query($conn,$sql2) or die ("Query feild");
+                            $row2 = mysqli_fetch_assoc($result2);
+                            $request_status = $row2['request_status'];
+
+
                             $sql3 = "SELECT u.roll FROM `users` as u 
                             INNER JOIN post as p 
                             where p.user_id = u.id and p.book_name = '".$book_name."'";
                             $result3 = mysqli_query($conn,$sql3) or die ("Query feild");
                             $row3 = mysqli_fetch_assoc($result3);
-                            echo "<h2>Request to  : ". $row3['roll'] ."</h2>" ;
-                            ?>
 
-                            <h3>Request for :  <?php echo $row1['book_name']  ?></h3>
+
+                            echo "<h2>Request to  : ". $row3['roll'] ."</h2>" 
+                            ?>
+                            <h4>Request for :  <?php echo $row1['book_name']  ?></h4>
+                            <h4>Request status <?php echo  $row['request_status'] ?></h4>
                                 <div>
-                                    <form action="./backend/button.php" method="post">
+                                  <form action="./backend/delateRequest.php" method="post">
                                         <?php 
-                                       // $x = $row['post_id'];
-                                        echo "<button style='width:80px;height:30px;font-size:16px;margin-left:5px;' type='submit' name='btn1'>Decline</button>"
+                                       $x=$row['request_id'];
+                                      echo "<button style= 'width: 80px;
+                                      font-size: 16px;
+                                      font-weight: 500'
+                                      onclick = 'myFunction()'
+                                       name='btn1' value = '$x'>Delete</button>"
                                         ?>
                                     </form>
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                          <?php
+                    <?php
                   }
-                              } else {
-                                  echo "No data found";
-                                  }
-                          ?>
+                } else {
+                    echo "No data found";
+                }
+            ?>
         </div>
 </div>
 </body>
