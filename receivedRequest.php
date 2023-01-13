@@ -62,7 +62,7 @@ $user_id =  $row['id'];
                             $sql1 = "SELECT book_name FROM `post` WHERE post_id = '".$temp."'";
                             $result1 = mysqli_query($conn,$sql1) or die ("Query feild");
                             $row1 = mysqli_fetch_assoc($result1);
-                            echo "<br> Post_id = ". $row1['book_name'] ;
+                            // echo "<br> Post_id = ". $row1['book_name'] ;
                             ?>
                             <h3>Request for :  <?php echo $row1['book_name']  ?></h3>
                             <p class="card-text"> Normal Text MSG.</p>

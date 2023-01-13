@@ -52,14 +52,4 @@ $request_status = 'Pending';
         }
       
         }
-
-
-
-        //Inserting value into request table
-
-        // $sql = "INSERT INTO request (post_id, request_from, request_to, request_status)
-        //  VALUES ('".$post_id."','".$request_form."','".$request_to."', '".$request_status."')";
-        // if($conn -> query($sql)){
-        // echo "Data inserted into database Successfully.";
-        
 ?>

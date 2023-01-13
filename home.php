@@ -55,6 +55,7 @@ include './nav1.php';
                                     Owner : <a href=""> <?php echo $row1['roll']; ?></a>
                                 </h2>
                                 <h4>Book name : <?php echo $row['book_name'] ?> </h4>
+                                <h4>Author: <?php echo $row['author_name'] ?> </h4>
                                 <h3>Edition : <?php echo $row['edition'] ?></h3>
                                 <p class="card-text">
                                     <?php echo $row['details'] . "<br>";
@@ -83,7 +84,6 @@ include './nav1.php';
         </div>
 
     </div>
-
 </body>
 
 </html>

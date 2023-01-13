@@ -363,11 +363,14 @@
                 Book Finder
             </div>
         </div>
-        <form class="d-flex">
-        <input style="height: 30px;
-    margin-top: 15px;" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button style="height: 30px;
-    margin-top: 15px;" class="btn btn-outline-success" type="submit">Search</button>
+
+        <form action="./search.php" class="d-flex">
+        <!-- <input style="height: 30px; margin-top: 15px;" class="form-control me-2" type="search" placeholder="Search"aria-label="Search">
+        <button style="height: 30px; margin-top: 15px;" class="btn btn-outline-success" type="submit">Search</button> -->
+
+        <input type="text" name="query"  style="height: 30px; margin-top: 15px;" class="form-control me-2" type="search" placeholder="Search"aria-label="Search"/>
+		<input type="submit" value="Search"  style="height: 30px; margin-top: 15px;color:white;border:1px solid white;" class="btn"/>
+
       </form>
         <div class="nav-btn">
             <label for="nav-check">
