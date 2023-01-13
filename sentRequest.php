@@ -77,7 +77,16 @@ $roll = $row['roll'];
                             $row3 = mysqli_fetch_assoc($result3);
 
 
-                            echo "<h2>Request to  : ". $row3['roll'] ."</h2>" 
+                            $sql4 = "SELECT u.email FROM `users` as u 
+                            INNER JOIN post as p 
+                            where p.user_id = u.id and p.book_name = '".$book_name."'";
+                            $result4 = mysqli_query($conn,$sql4) or die ("Query feild");
+                            $row4 = mysqli_fetch_assoc($result4);
+
+
+                            echo "<h2>Request to  : ". $row3['roll'] ."</h2>" ;
+                            echo "<h2>Email to  : ". $row4['email'] ."</h2>";
+
                             ?>
                             <h4>Request for :  <?php echo $row1['book_name']  ?></h4>
                             <h4>Request status <?php echo  $row['request_status'] ?></h4>
@@ -92,7 +101,19 @@ $roll = $row['roll'];
                                        name='btn1' value = '$x'>Delete</button>"
                                         ?>
                                     </form>
-
+                                </div>
+                                <div>
+                                  <form action="./chat.php" method="post">
+                                        <?php 
+                                       $to_email = $row4['email'];
+                                       $_SESSION['to_email'] = $to_email;
+                                      echo "<button style= 'width: 80px;
+                                      font-size: 16px;
+                                      font-weight: 500'
+                                      onclick = 'myFunction()'
+                                       >Chat</button>"
+                                        ?>
+                                    </form>
                                 </div>
                             </div>
                         </div>

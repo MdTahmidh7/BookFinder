@@ -400,6 +400,7 @@
                 
                 ?>
             </a>
+            <a href="./notification.php">Notification</a>
             <a href="./receivedRequest.php">Received Request</a>
             <a href="./sentRequest.php">Sent Request</a>
         </div>
