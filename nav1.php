@@ -382,10 +382,13 @@
 
         <div class="nav-links">
             <a href="./home.php">Home</a>
-            <a href="./profile.php">Profile</a>
-            <a href="./createpost.php">Creat Post</a>
+            <a href="./createpost.php">Create Post</a>
+            <a href="./notification.php">Message</a>
+            <a href="./receivedRequest.php">Received Request</a>
+            <a href="./sentRequest.php">Sent Request</a>
+            <a href="./allPost.php">All Post</a>
             <a href="./logout.php">Log Out</a>
-            <a href="">
+            <a href="" style="border: 1px solid white;">
                 <?php
                 $conn = new mysqli('localhost', 'root', '', 'bookFinder');
                 if (!$conn) {
@@ -397,12 +400,10 @@
                 $result = mysqli_query($conn, $sql1) or die("Query feild");
                 $row = mysqli_fetch_assoc($result);
                 echo  $row['roll'];
-                
                 ?>
             </a>
-            <a href="./notification.php">Notification</a>
-            <a href="./receivedRequest.php">Received Request</a>
-            <a href="./sentRequest.php">Sent Request</a>
+            
+           
         </div>
     </div>
 </body>

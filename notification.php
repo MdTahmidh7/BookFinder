@@ -284,83 +284,16 @@
                             value = "<?php echo $row['ID']?>"
                             ><?php echo $row['ID']?></button>
                             </form>
-                            <h3>
+                            <!-- <h3>
                                 <span class="status orange"></span> offline
-                            </h3>
+                            </h3> -->
                         </div>
                     </li>
                    <?php }
                 }
-                
-                
-                
-                
                 ?>
-                <li>
-                    <div>
-                        <h2>Prénom Nom</h2>
-                        <h3>
-                            <span class="status orange"></span> offline
-                        </h3>
-                    </div>
-                </li>
             </ul>
         </aside>
-        <main>
-            <header>
-
-                <div>
-                    
-                </div>
-
-            </header>
-                <?php
-
-                    // $servername = "localhost";
-                    // $username = "root";
-                    // // Create connection
-                    // $conn = new mysqli($servername, $username,"","bookFinder");
-                    // // Check connection
-                    // if ($conn->connect_error) {
-                    // die("Connection failed: " . $conn->connect_error);
-                    // }
-
-                //  $to_email = $_SESSION["to_email"];
-                //  $form_email  = $_COOKIE["email"]; 
-
-                //  echo "To mail = " . $to_email;
-                //  echo "  From emal = " . $form_email;
-
-                //  $sss = "SELECT * FROM `message` WHERE `m_from`= '".$form_email."' and `m_to`='".$to_email."'
-                //  OR
-                //  `m_to`= '".$form_email."' and `m_from`='".$to_email."'";
-
-                // //  $sql = "SELECT * FROM `message` WHERE `m_from`= $form_email  or `m_to`=$to_email";
-                //  $result = $conn->query($sss);
-                //  $query = $conn -> query($sss);
-
-            //    if($query-> num_rows > 0){
-            //    while($row = $result->fetch_assoc()){
-            //         //echo "message = " . $row['message'] . "<br>";
-            //         if($row['m_from']==$form_email ){    
-            //                  echo "<li class='me'> You"
-            //                ."<div class='message'>".$row['message']."</div>"
-            //                 ."</li>";
-            //            }
-            //            else if($row['m_from']==$to_email ){    
-            //             echo "<li class='me'> Other"
-            //           ."<div class='message'>".$row['message']."</div>"
-            //            ."</li>";
-            //       }
-
-            //    }
-            // }
-
-                
-                ?> 
-
-            
-        </main>
     </div>
 </body>
 </html>

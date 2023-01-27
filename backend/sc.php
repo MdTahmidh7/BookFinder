@@ -1,10 +1,17 @@
 <?php
 session_start();
-$var = $_GET['forSessionChange'];
-echo "email = " . $var;
-$_SESSION['to_email'] = $var;
-echo "<br>session value = " . $_SESSION['to_email'];
+echo "sc";
+
+echo $_SESSION['to_email'];
+
+echo $_POST['b'];
+$_SESSION['to_email'] = $_POST['b'];
+
+
 echo '<script language="javascript">';
 echo 'window.location = "http://localhost/bookFinder/chat.php"';
 echo '</script>';
+
+
+
 ?>

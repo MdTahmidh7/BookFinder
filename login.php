@@ -15,7 +15,7 @@
         min-height: 100vh;
         font-family: 'Jost', sans-serif;
         /* background: linear-gradient(to bottom, #1e1249, #5b69e2, #24243e); */
-        background-image: url('./img/book.jpg');
+        background-image: url('./book.jpg');
     }
 
     .main {
@@ -118,11 +118,12 @@
                 <form action="./backend/signup.php" method="post">
                     <!-- <h2 style="text-align:center; color:white;">Book Finder</h2> -->
                     <label style="text-align:center; color:white;" for="chk" aria-hidden="true">Book Finder Sign up</label>
-                    <input type="text" name="roll" placeholder="Student ID" required="">
+                    <input type="text" name="roll" placeholder="Student ID or Name" required="">
                     <input type="email" name="email" placeholder="Email" required="">
                     <input type="password" name="pass1" placeholder="Password" required="">
                     <input type="password" name="pass2" placeholder="Password Again" required="">
                     <button name="submit">Sign up</button>
+                    
                 </form>
             </div>
 
@@ -132,6 +133,7 @@
                     <input type="email" name="email" placeholder="Email" required="">
                     <input type="password" name="pass" placeholder="Password" required="">
                     <button name="submit">Login</button>
+                    <a style="color: black;margin-left: 123px;font-size: 12px;text-decoration: none;" href="./forgetPass.php">Forgot Password?</a>
                 </form>
             </div>
         </div>

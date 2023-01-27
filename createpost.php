@@ -39,16 +39,16 @@ include './nav1.php';
 <div class="container">
     <form class="row g-3" action="./backend/createpost.php" method="post" enctype="multipart/form-data">
   <div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Book Name</label>
-    <input class="form-control" type="text" name="bookName" required><br>
+    <label for="inputEmail4" class="form-label" >Book Name</label>
+    <input class="form-control" type="text" name="bookName" required style="height: 30px;font-size: 16px;"><br>
   </div>
   <div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Author Name</label>
-      <input class="form-control" type="text" name="authorName" required><br>
+    <label for="inputPassword4" class="form-label" >Author Name</label>
+      <input class="form-control" type="text" name="authorName" required style="height: 30px;font-size: 16px;"><br>
   </div>
   <div class="col-12">
-    <label for="inputAddress" class="form-label">Edition</label>
-    <input class="form-control" type="text" name="edition" required>
+    <label for="inputAddress" class="form-label" >Edition</label>
+    <input class="form-control" type="text" name="edition" required style="height: 30px;font-size: 16px;">
   </div>
   <div class="col-12">
     <label for="inputAddress2" class="form-label">Details</label>

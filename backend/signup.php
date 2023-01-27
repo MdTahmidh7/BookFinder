@@ -17,11 +17,12 @@ $pass2 = $_POST['pass2'];
 
 $md5Pass = md5($pass1);
 
-echo $roll . $email . $pass1 . $pass2 . " ". $md5Pass;
 
-if(!empty($roll) && !empty($email) && !empty($pass1) && !empty($pass2) ){
+//echo $roll . $email . $pass1 . $pass2 . " ". $md5Pass;
+
+if(!empty($roll) && !empty($email) && !empty($pass1) && !empty($pass2) && strlen($roll)<20){
     if($pass1 === $pass2){
-        echo " Passs Match";
+       // echo " Passs Match";
         $sql_if_mail_exist = "SELECT * FROM `users` 
         where email = '. $email .';";
         if($conn-> query($sql_if_mail_exist)){
@@ -36,9 +37,9 @@ if(!empty($roll) && !empty($email) && !empty($pass1) && !empty($pass2) ){
         if($conn -> query($sql)){
          //  echo "User inserted in Database ";
         //header('location : home.php');
-        $_SESSION['login'] = 'successful';
-        header("Location: http://localhost/bookFinder/home.php");
-        exit();
+        //  $_SESSION['login'] = 'successful';
+         header("Location: http://localhost/bookFinder/signupDone.php");
+         exit();
         }
         else{
             echo '<script language="javascript">';
@@ -53,6 +54,11 @@ if(!empty($roll) && !empty($email) && !empty($pass1) && !empty($pass2) ){
     echo 'window.location = "http://localhost/bookFinder/home.php"';
     echo '</script>';
     }
+}else{
+    echo '<script language="javascript">';
+    echo 'alert("Not a valid input.Name is too big.");';
+    echo 'window.location = "http://localhost/bookFinder/home.php"';
+    echo '</script>';
 }
 
 ?>

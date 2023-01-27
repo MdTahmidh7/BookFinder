@@ -14,24 +14,23 @@ include './nav1.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>Received Request</title>
+    <title>All Post</title>
 </head>
 <body>
-<h1 style="text-align:center;" class="mt-3">Sent Request</h1>
+<h1 style="text-align:center;" class="mt-3">All posts</h1>
 <?php
 $conn = new mysqli('localhost', 'root', '', 'bookFinder');
 if (!$conn) {
     echo "Can not connect to Database.";
 }
-// Fetching Profile name form the database
+//Fetching User_id name form the database
 $temp = $_COOKIE["email"];
-$sql1 = "SELECT roll FROM users where email = '" . $temp . "'";
+$sql1 = "SELECT id FROM users where email = '" . $temp . "'";
 $result = mysqli_query($conn, $sql1) or die("Query feild");
 $row = mysqli_fetch_assoc($result);
-$roll = $row['roll'];
-
+$user_id = $row['id'];
+// echo "user id is = " . $user_id;
 ?>
-
 <div class="container" style="display:flex;flex-wrap:wrap;">
         <?php
             // Create a database Connection
@@ -39,8 +38,8 @@ $roll = $row['roll'];
             if (!$conn) {
                 echo "Can not connect to Database.";
             }
-            $query = "SELECT * FROM `request` WHERE request_from = '".$roll."'";
-            $run_query = mysqli_query($conn, $query); //Run the query function
+            $query = "SELECT * FROM `post` WHERE user_id = '".$user_id."'";
+            $run_query = mysqli_query($conn, $query); 
             $check_data = mysqli_num_rows($run_query) > 0;
 
             if ($check_data) {
@@ -51,10 +50,9 @@ $roll = $row['roll'];
             <div class="card mt-5">
                 <div class="card-body" style="background: gainsboro;box-shadow: 5px 5px 8px darkgrey;">
 
-                
                             <?php
                             $temp = $row['post_id'];
-                            $status = $row['request_status'];
+                          //  $status = $row['request_status'];
 
                             $conn = new mysqli('localhost', 'root', '', 'bookFinder');
 
@@ -82,20 +80,22 @@ $roll = $row['roll'];
                             where p.user_id = u.id and p.book_name = '".$book_name."'";
                             $result4 = mysqli_query($conn,$sql4) or die ("Query feild");
                             $row4 = mysqli_fetch_assoc($result4);
-
-
-                            echo "<h2>Request to  : ". $row3['roll'] ."</h2>" ;
-                            // echo "<h2>Email to  : ". $row4['email'] ."</h2>";
+                            // echo "<h2>Request to  : ". $row3['roll'] ."</h2>" ;
 
                             ?>
-                            <h4>Request for :  <?php echo $row1['book_name']  ?></h4>
-                            <h4>Request status <?php echo  $row['request_status'] ?></h4>
+                            <!-- <h4>Request for :  <?php echo $row1['book_name']  ?></h4> -->
+                            <!-- <h4>Request status <?php echo  $row['request_status'] ?></h4> -->
+                            <b><h2>Book Name : <?php echo  $row['book_name'] ?></h2></b>
+                            <h3>Author Name: <?php echo  $row['author_name'] ?></h3>
+                            <h4>Edition : <?php echo  $row['edition'] ?></h4>
+                            <!-- <h5>post Id: <?php echo  $row['post_id'] ?></h5> -->
+                            
                                 <div class="buttion-div" style="display:flex;justify-content:space-between;
                                 padding:5px;">
                                     <div>
-                                    <form action="./backend/delateRequest.php" method="post">
+                                    <form action="./backend/delatePost.php" method="post">
                                             <?php 
-                                        $x=$row['request_id'];
+                                        $x=$row['post_id'];
                                         echo "<button style= 'width: 80px;
                                         font-size: 16px;
                                         font-weight: 500'
@@ -104,24 +104,7 @@ $roll = $row['roll'];
                                             ?>
                                         </form>
                                     </div>
-                                    <div>
-                                    <form action="./backend/sc.php" method="post">
-                                            <?php 
-                                        // $to_email = $row4['email'];
-                                        // $_SESSION["to_email"] = $to_email;
-                                        // echo "kk = ". $_SESSION['to_email'];
-                                        
-
-                                        // echo "<button style= 'width: 80px;
-                                        // font-size: 16px;
-                                        // font-weight: 500'
-                                        // onclick = 'myFunction()'
-                                        // >Chat</button>"
-                                            ?>
-                                            <button name='b' style="width: 80px;font-size: 16px;
-                                            ;font-weight: 500"  value ="<?php echo $row4['email']?>">Chat</button>
-                                        </form>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -134,5 +117,7 @@ $roll = $row['roll'];
             ?>
         </div>
 </div>
+
+
 </body>
 </html>

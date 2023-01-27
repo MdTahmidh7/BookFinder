@@ -5,6 +5,8 @@
       header("Location: http://localhost/bookFinder/login.php");
   }
  include './nav1.php';
+
+//  echo "pp = " . $_SESSION["to_email"];
 ?>
 
 <!DOCTYPE html>
@@ -280,13 +282,16 @@
                     <li>
                         <div>
                             <form action="./backend/sessionChange.php" method="get">
-                            <button style= "width:245px;height:55px;background:#747a90;" name="forSessionChange" 
+                            <button style= "width: 242px;
+                            height: 55px;
+                            background: #747a90;
+                            margin-left: 1px;
+                            border-radius: 4px;
+                            color: #fdf5f5;
+                            border: 1px solid;" name="forSessionChange" 
                             value = "<?php echo $row['ID']?>"
                             ><?php echo $row['ID']?></button>
                             </form>
-                            <h3>
-                                <span class="status orange"></span> offline
-                            </h3>
                         </div>
                     </li>
                    <?php }
@@ -306,9 +311,14 @@
             </header>
             <footer>
                 <form action="./backend/chat.php" method="get">
-                <textarea style="position: absolute; width: 474px;" placeholder="Type your message" name="text"></textarea>
+                <textarea style="position: absolute; width: 474px;
+                margin-top: 22px;" placeholder="Type your message" name="text"></textarea>
                 <?php     
-                echo "<button style='margin-top: 10px; z-index: 10;position: absolute; margin-left: 415px;'>Send</button>";
+                echo "<button style='margin-top: 22px; z-index: 10;position: absolute; margin-left: 388px;
+                height:40px;
+                border-radius:5px;
+                border:1.5px solid green;
+                width:70px;'>Send</button>";
                 ?>
                 <!-- <a href="#">Send</a> -->
                 </form>
@@ -328,8 +338,8 @@
                                 $to_email = $_SESSION["to_email"];
                                 $form_email  = $_COOKIE["email"]; 
 
-                                echo "To mail = " . $to_email;
-                                echo "  From emal = " . $form_email;
+                                // echo "To mail = " . $to_email;
+                                // echo "  From emal = " . $form_email;
 
                                 $sss = "SELECT * FROM `message` WHERE `m_from`= '".$form_email."' and `m_to`='".$to_email."'
                                 OR
@@ -343,15 +353,15 @@
                                 while($row = $result->fetch_assoc()){
                                 //echo "message = " . $row['message'] . "<br>";
                                 if($row['m_from']==$form_email ){    
-                                        echo "<li class='me' style='background: #9db7ae;
-                                        border-radius: 20px;margin-top: 15px;    margin-right: 100px;'> You"
+                                        echo "<li class='me' style='background: #cbfaea;
+                                        border-radius: 8px;margin-top: 15px;    margin-right: 100px;'> You"
                                     ."<div class='message' style='
                                     55px;font-size:12px;margin-left: 20px;padding: 7px;'>".$row['message']."</div>"
                                         ."</li>";
                                 }
                                 else if($row['m_from']==$to_email ){    
-                                    echo "<li class='me'style='background: white;
-                                    border-radius: 20px;margin-top: 15px;text-align:right; margin-left: 100px;' > Other"
+                                    echo "<li class='me'style='background: #f4ffe7;
+                                    border-radius: 8px;margin-top: 15px;text-align:right; margin-left: 100px;' > Other"
                                 ."<div class='message' style='text-align: right;
                                 margin-right: 22px;font-size:12px;padding: 7px;'>".$row['message']."</div>"
                                 ."</li>";

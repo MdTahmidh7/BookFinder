@@ -59,7 +59,7 @@ include './nav1.php';
                                 <h3>Edition : <?php echo $row['edition'] ?></h3>
                                 <p class="card-text">
                                     <?php echo $row['details'] . "<br>";
-                                    echo $row['img_location'];
+                                    // echo $row['img_location'];
                                     ?>
                                 </p>
                                 <div>

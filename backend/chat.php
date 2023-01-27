@@ -23,7 +23,7 @@ if($conn -> query($sql)){
 
    echo '<script language="javascript">';
 //    echo 'alert("Message Sent");';
-   echo 'window.location = "http://localhost/bookFinder1/chat.php"';
+   echo 'window.location = "http://localhost/bookFinder/chat.php"';
    echo '</script>';
 
 ?>

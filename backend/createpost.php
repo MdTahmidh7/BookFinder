@@ -39,6 +39,7 @@ $user_id =  $row['id'];
     if ($error === 0) {
 		if ($img_size > 600000) {
 			$em = "Sorry, your file is too large.";
+			
 		    header("Location: index.php?error=$em");
 		}else {
 			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
