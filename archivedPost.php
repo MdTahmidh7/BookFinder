@@ -86,7 +86,7 @@ include './nav1.php';
     </div>
     <div class="titleDiv">
         <hr>
-        <h1>All Post</h1>
+        <h1>Archived Post</h1>
         <hr>
     </div>
     <?php
@@ -111,7 +111,7 @@ include './nav1.php';
         }
 
         // $query = "SELECT * FROM `post` WHERE user_id = '" . $user_id . "'";
-        $query = "SELECT * FROM `post` WHERE `user_id` = '" . $user_id . "' AND `archive`=0";
+        $query = "SELECT * FROM `post` WHERE `user_id` = '" . $user_id . "' AND `archive`=1";
         $run_query = mysqli_query($conn, $query);
         $check_data = mysqli_num_rows($run_query) > 0;
 
@@ -181,14 +181,14 @@ include './nav1.php';
                                     </form>
                                 </div>
                                 <div>
-                                    <form action="./backend/archivePost.php" method="post">
+                                    <form action="./backend/restorePost.php" method="post">
                                         <?php
                                         $x = $row['post_id'];
                                         echo "<button style= 'width: 80px;
                                         font-size: 16px;
                                         font-weight: 500'
                                         onclick = 'myFunction()'
-                                        name='btn1' value = '$x'>Archive</button>"
+                                        name='btn1' value = '$x'>Restore</button>"
                                         ?>
                                     </form>
                                 </div>
