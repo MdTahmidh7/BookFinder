@@ -53,7 +53,7 @@ include './nav1.php';
         .headerDiv .right {
             font-size: 16px;
             font-weight: 600;
-            padding: 10px;
+            padding: 5px;
         }
 
         .headerDiv .left a,
@@ -77,16 +77,16 @@ include './nav1.php';
     <div class="headerDiv">
         <div class="left">
             <!-- <h1 style="text-align:center;" class="mt-3">All posts</h1> -->
-            <a href="./allPost.php">All Post</a>
+            <a href="./allPost.php" style="text-decoration: none;">All Post</a>
         </div>
         <div class="right">
             <!-- <h1 style="text-align:center;" class="mt-3">Archived posts</h1> -->
-            <a href="./archivedPost.php">Archived Post</a>
+            <a href="./archivedPost.php" style="text-decoration: none;">Archived Post</a>
         </div>
     </div>
     <div class="titleDiv">
         <hr>
-        <h1>Archived Post</h1>
+        <h1 style="font-size: 30px;">Archived Post</h1>
         <hr>
     </div>
     <?php
@@ -159,9 +159,9 @@ include './nav1.php';
                             <!-- <h4>Request for :  <?php echo $row1['book_name']  ?></h4> -->
                             <!-- <h4>Request status <?php echo  $row['request_status'] ?></h4> -->
                             <b>
-                                <h2>Book Name : <?php echo  $row['book_name'] ?></h2>
+                                <h3 style="font-size: 19px;">Book Name : <?php echo  $row['book_name'] ?></h3>
                             </b>
-                            <h3>Author Name: <?php echo  $row['author_name'] ?></h3>
+                            <h4 style="font-size: 16px;">Author Name: <?php echo  $row['author_name'] ?></h4>
                             <h4>Edition : <?php echo  $row['edition'] ?></h4>
                             <h4>Archive : <?php echo  $row['archive'] ?></h4>
                             <!-- <h5>post Id: <?php echo  $row['post_id'] ?></h5> -->

@@ -14,18 +14,17 @@ include './nav1.php';
     <title>Document</title>
     <style>
         @media (min-width: 768px) {
-   .col-md-3{
-    width: 35%;
-  }
-}
-
+            .col-md-3 {
+                width: 42%;
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- Main Body  -->
-    <div class="container py-5" >
-        <div class="row mt-4" style="display: flex;justify-content: center;">
+    <div class="container py-5 " style="margin-top: 7px; width:90%;margin:auto">
+        <div class="row mt-4" style="display: flex;justify-content: center;flex-wrap:wrap;">
 
             <?php
             // Create a database Connection
@@ -50,26 +49,29 @@ include './nav1.php';
                     $run_query1 = mysqli_query($conn, $query2);
                     $row1 = mysqli_fetch_array($run_query1);
             ?>
-                    <div class="col-md-3" style="max-width:300px;">
+                    <div class="col-md-3" style="max-width:300px; margin-top: 25px;margin-left: 10px;margin-bottom:20px">
                         <div class="card mt-5" style="background: #eee5fdb3;box-shadow: 2px 3px 6px #e6d7ff;
                         margin-left: 10px;">
                             <div class="card-body">
-                                <div class="image-container">
-                                    <img style="max-width: 295px;max-height: 200px;" src="./backend/uploads/<?php echo $row['img_location'] ?>" class="card-img-top" alt="">
+                                <div class="image-container" style="display: flex;justify-content: center;height:250px;padding:10px;">
+                                    <img style="width: 100%;" src="./backend/uploads/<?php echo $row['img_location'] ?>" class="card-img-top" alt="">
                                 </div>
-                                <!-- <h2 class="card-title">Title Here </h2> -->
-                                <h2>
-                                    Owner : <a href=""> <?php echo $row1['roll']; ?></a>
-                                </h2>
+                                <div class="cardContext" style="padding: 7px;">
+                                <div class="owner" style="height: 50px;">
+                                <h3 style="font-size: 22px;">Owner : <a href=""> <?php echo $row1['roll']; ?></a></h3>
+                                </div>
+                                <div class="bookName" style="width: 270px; display:flex; flex-wrap:wrap;">
                                 <h4>Book name : <?php echo $row['book_name'] ?> </h4>
+                                </div>
+                                <div class="bookInfo" style="height: 60px;">
                                 <h4>Author: <?php echo $row['author_name'] ?> </h4>
-                                <h3>Edition : <?php echo $row['edition'] ?></h3>
-                                <p class="card-text">
-                                    <?php echo $row['details'] . "<br>";
-                                    // echo $row['img_location'];
-                                    ?>
-                                </p>
-                                <div>
+                                <h4>Edition : <?php echo $row['edition'] ?></h4>
+                                </div>
+                                <div class="detailsInfo" style="padding: 7px; height: 30px;">
+                                <p class="card-text"><?php echo $row['details'] . "<br>";?></p>
+                                </div>
+                                </div>
+                                <div style="padding:10px">
                                     <!-- <?php echo $row['post_id']; ?> -->
                                     <form action="./backend/button.php" method="post">
                                         <?php
